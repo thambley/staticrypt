@@ -25,18 +25,20 @@ Staticrypt is available through npm as a CLI, install with `npm install -g stati
     Usage: staticrypt <filename> <passphrase> [options]
 
     Options:
-      --help               Show help                                       [boolean]
-      --version            Show version number                             [boolean]
-      -e, --embed          Whether or not to embed crypto-js in the page (or use an
-                           external CDN)                   [boolean] [default: true]
-      -o, --output         File name / path for generated encrypted file
-                                                            [string] [default: null]
-      -t, --title          Title for output HTML page
-                                                [string] [default: "Protected Page"]
-      -i, --instructions   Special instructions to display to the user.
-                                                            [string] [default: null]
-      -f, --file-template  Path to custom HTML template with password prompt.
-                              [string] [default: "[...]/cli/password_template.html"]
+      --help                 Show help                                       [boolean]
+      --version              Show version number                             [boolean]
+      -e, --embed            Whether or not to embed crypto-js in the page (or use an
+                             external CDN)                   [boolean] [default: true]
+      -o, --output           File name / path for generated encrypted file
+                                                             [string] [default: null]
+      -t, --title            Title for output HTML page
+                                                 [string] [default: "Protected Page"]
+      -i, --instructions     Special instructions to display to the user.
+                                                             [string] [default: null]
+      -f, --file-template    Path to custom HTML template with password prompt.
+                                [string] [default: "[...]/cli/password_template.html"]
+      -s, --storepassphrase  Store the passphrase (in clear text) so the user doesn't have to re-enter on each page load. Valid options are: SessionStorage, LocalStorage, None
+                                [string] [default: "None"]
 
 Example usages:
 
@@ -46,3 +48,7 @@ Example usages:
 You can use a custom template for the password prompt - just copy `cli/password_template.html` and modify it to suit your presentation style and point to your template file with the `-f` flag. Be careful to not break the encrypting javascript part, the variables replaced by staticrypt are between curly brackets: `{instructions}`.
 
 **ADBLOCKERS**: If you do not embed crypto-js and serve it from a CDN, some adblockers see the `crypto-js.min.js`, think that's a crypto miner and block it.
+
+Build as EXE:
+
+`pkg --targets node10-win .`
